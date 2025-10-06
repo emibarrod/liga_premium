@@ -6,8 +6,7 @@ from data_processing import process_data, get_player_match_history
 from plotting import get_player_stats_table
 
 # --- App Configuration ---
-st.set_page_config(page_title="LIGA PREMIUM BADAJOZ", layout="wide" \
-"")
+st.set_page_config(page_title="LIGA PREMIUM BADAJOZ", layout="wide", page_icon="resources/favicon.ico")
 
 # --- Main App ---
 def main():
