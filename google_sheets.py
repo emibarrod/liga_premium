@@ -1,13 +1,15 @@
 
 import gspread
 import pandas as pd
+import toml
 from google.oauth2.service_account import Credentials
 
 # Function to get data from Google Sheet
 def get_data_from_sheet(sheet_name):
     try:
         scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-        creds = Credentials.from_service_account_file(".streamlit/credentials.json", scopes=scope)
+        creds_dict = toml.load(".streamlit/secrets.toml")['gcp_credentials']
+        creds = Credentials.from_service_account_info(creds_dict, scopes=scope)
         client = gspread.authorize(creds)
         sheet = client.open(sheet_name).worksheet("wins_losses")
         data = sheet.get_all_records()
@@ -20,7 +22,8 @@ def get_data_from_sheet(sheet_name):
 def get_match_history_from_sheet(sheet_name):
     try:
         scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-        creds = Credentials.from_service_account_file(".streamlit/credentials.json", scopes=scope)
+        creds_dict = toml.load(".streamlit/secrets.toml")['gcp_credentials']
+        creds = Credentials.from_service_account_info(creds_dict, scopes=scope)
         client = gspread.authorize(creds)
         sheet = client.open(sheet_name).worksheet("matches")
         data = sheet.get_all_records()

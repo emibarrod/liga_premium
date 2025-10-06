@@ -14,10 +14,9 @@ This is a Streamlit app that reads data from a Google Sheet and displays the sta
 2.  **Set up Google Sheets API Credentials:**
 
     *   Enable the Google Sheets API and Google Drive API in the [Google Cloud Console](https://console.cloud.google.com/).
-    *   Create a service account and download the credentials as a JSON file.
-    *   Rename the JSON file to `credentials.json`.
-    *   Create a directory named `.streamlit` in the root of this project.
-    *   Place the `credentials.json` file inside the `.streamlit` directory.
+    *   Create a service account and get the credentials.
+    *   Create a file named `secrets.toml` inside the `.streamlit` directory.
+    *   Place the credentials in the `secrets.toml` file in TOML format.
     *   Share your Google Sheet with the email address of the service account.
 
 3.  **Run the Streamlit app:**
