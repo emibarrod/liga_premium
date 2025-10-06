@@ -29,7 +29,7 @@ def process_data(df, matches_df):
             
             df["Winrate de Oponentes"] = df['Jugador'].map(opp_winrates)
 
-        df = df.sort_values(by='Puntos', ascending=False)
+        df = df.sort_values(by=['Puntos', 'Winrate de Oponentes', 'Partidas totales'], ascending=[False, False, False])
         df = df.reset_index(drop=True)
         df["Ranking"] = df.index + 1
         return df
