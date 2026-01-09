@@ -28,7 +28,7 @@ def main():
             with tab1:
                 # --- Display League Rankings ---
                 st.header("Clasificación")
-                st.dataframe(processed_df[['Ranking', 'Jugador', 'Victorias', 'Derrotas', 'Empates', 'Puntos', 'Partidas totales', 'Winrate', "Winrate de Oponentes"]], hide_index=True)
+                st.dataframe(processed_df[['Ranking', 'Jugador', 'Victorias', 'Derrotas', 'Empates', 'Puntos', 'Partidas totales', 'Winrate']], hide_index=True)
 
             with tab2:
                 # --- Player Specific Stats ---
